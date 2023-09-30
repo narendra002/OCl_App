@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd Backend && npm start",
+    "frontend": "cd todoApp && npm run dev",
+    "dev": "npm run start"
+  }
+,  
+  "dependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
