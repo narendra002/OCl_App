@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { toast } from 'react-toastify'; // Import toast from react-toastify
 
-const BASE_URL = 'http://localhost:3000'; // Replace with your actual API URL
+const BASE_URL = 'https://o-cl-app.vercel.app'; // Replace with your actual API URL
 const token = localStorage.getItem('Token');
 
 
