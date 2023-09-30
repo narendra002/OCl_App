@@ -7,7 +7,7 @@ const User = require('../Models/User');
 require('dotenv').config(); // Load environment variables
 
 
-const secretKey = process.env.SECRET;// Replace with a strong secret key
+const secretKey = "secret";// Replace with a strong secret key
 
 // Login
 router.post('/login', async (req, res) => {

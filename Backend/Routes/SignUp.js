@@ -7,7 +7,7 @@ const User = require('../Models/User');
 // Register a new user, including an "isAdmin" field
 router.post('/signup', async (req, res) => {
   try {
-    const { username, email, password, isAdmin } = req.body;
+    const { username, email, password } = req.body;
 
     // Check if the email or username is already taken
     const existingUser = await User.findOne({ $or: [{ username }, { email }] });
@@ -20,7 +20,7 @@ router.post('/signup', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     // Create a new user with isAdmin option
-    const newUser = new User({ username, email, password: hashedPassword, isAdmin });
+    const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
 
     res.status(201).json({ message: 'User registered successfully' });
