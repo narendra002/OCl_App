@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from "react";
 import { Input, Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import { signup } from "./AxiosApiCaller"; // Import the signup function
 
 export default function SignUp() {
+  const navigate =useNavigate();
   const [user, setUser] = useState({
     email: "",
     username: "",
@@ -51,6 +53,7 @@ export default function SignUp() {
         // Make the signup request without isAdmin status
         const response = await signup(user.email, user.username, user.password);
         console.log("Signup Response:", response);
+      navigate("/login");
         // Handle the response (e.g., show a success message or redirect to login page)
       } catch (error) {
         console.error("Signup error:", error);
